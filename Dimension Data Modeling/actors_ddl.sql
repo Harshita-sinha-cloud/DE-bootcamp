@@ -26,10 +26,9 @@ CREATE TYPE quality_class AS ENUM ('star','good','average','bad');
 CREATE TABLE public.actors (
  actor text,
  actorid text,
- filmid text,	
  films films[],
  quality_class quality_class,
  is_active bool,
  current_year integer,
- PRIMARY KEY ( actorid, filmid, current_year)
+ PRIMARY KEY ( actorid, current_year)
 );
