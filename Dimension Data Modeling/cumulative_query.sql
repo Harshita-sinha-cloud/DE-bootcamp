@@ -1,3 +1,5 @@
+--Cumulative table generation query: Write a query that populates the actors table one year at a time.
+	
 INSERT INTO ACTORS
 WITH YESTERDAY AS (
 	SELECT 
