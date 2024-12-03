@@ -1,3 +1,4 @@
+insert into actors_history_scd(actor, quality_class, is_active, start_year, end_year, current_year)
 with previous as(
 Select actor, quality_class, is_active, current_year,
 lag(quality_class,1) over(partition by actor order by current_year ) as previous_quality_class,
@@ -17,10 +18,9 @@ from indicators
 select actor,
 quality_class,
 is_active,
-current_year,
-streak_identifier,
+1970 as current_year,
 min(current_year) as start_year,
 max(current_year) as end_year
 from streaks
-group by 1,2,3,4,5
+group by 1,2,3,4
 ;
